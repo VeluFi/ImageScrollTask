@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ImageScreening</string>
+    <string name="image">Image</string>
+    <string name="_25">25%</string>
+    <string name="_50">50%</string>
+    <string name="_75">75%</string>
 </resources>

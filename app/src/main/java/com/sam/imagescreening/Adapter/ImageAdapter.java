@@ -1,24 +1,19 @@
-package com.sam.imagescreening;
+package com.sam.imagescreening.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sam.imagescreening.ImageResolution;
+import com.sam.imagescreening.R;
 import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder> {
     Context context;
@@ -54,6 +49,14 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
                 .fit()
                 .centerCrop()
                 .into(holder.imageview);
+
+        holder.imageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, ImageResolution.class);
+                context.startActivity(i);
+            }
+        });
     }
 
 
@@ -69,7 +72,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
             super(itemView);
 
 // get the reference of item view's
-            imageview = (ImageView) itemView.findViewById(R.id.imageMovie);
+            imageview = itemView.findViewById(R.id.imageMovie);
         }
     }
 }
